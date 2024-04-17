@@ -13,6 +13,7 @@ app.use((req, res, next) => {
     next();
 });
 
+
 // MySQL connection configuration
 const connection = mysql.createConnection({
   host: 'localhost',
