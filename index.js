@@ -262,6 +262,6 @@ app.post('/login', (req, res) => {
 // Similarly, write CRUD operations for other tables like 'branches', 'menu', 'tables', 'reservations', 'favourites', 'orders'
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is listening at http://localhost:${port}`);
+app.listen(process.env.PORT || PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
