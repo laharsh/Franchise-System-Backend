@@ -24,7 +24,8 @@ app.use((req, res, next) => {
 
 const pool = mysql.createPool({
   connectionLimit : 10, // Adjust the limit as per your application's needs
-  host: '34.192.31.89',
+  // host: '34.192.31.89',
+  host: 'localhost',
   user: 'root',
   password: 'My$ecureP@ssw0rd!',
   database: 'restaurantae',
