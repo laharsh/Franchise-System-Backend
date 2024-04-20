@@ -19,7 +19,9 @@ const connection = mysql.createConnection({
   user: 'root',
   password: 'My$ecureP@ssw0rd!',
   database: 'restaurantae',
-  connectTimeout: 10000 
+  connectTimeout: 0, // Disable the connection timeout
+  // Optionally, you can set the socket timeout to a large value as well
+  timeout: 0
 });
 
 // Connect to MySQL
