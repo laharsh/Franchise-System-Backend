@@ -19,6 +19,7 @@ const connection = mysql.createConnection({
   user: 'root',
   password: 'My$ecureP@ssw0rd!',
   database: 'restaurantae',
+  connectTimeout: 10000 
 });
 
 // Connect to MySQL
