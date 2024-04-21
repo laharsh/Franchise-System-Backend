@@ -25,10 +25,10 @@ app.use((req, res, next) => {
 const pool = mysql.createPool({
   connectionLimit : 10, // Adjust the limit as per your application's needs
   // host: '34.192.31.89',
-  host: 'localhost',
-  user: 'root',
-  password: 'My$ecureP@ssw0rd!',
-  database: 'restaurantae',
+  host: 'bwoil61ozg3apq6bgo4v-mysql.services.clever-cloud.com',
+  user: 'uie5u0mh8azfojeo',
+  password: 'iMHfYHCzTb0m11wETKo8',
+  database: 'bwoil61ozg3apq6bgo4v',
   connectTimeout: 10000 
 });
 
