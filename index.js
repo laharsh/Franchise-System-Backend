@@ -23,13 +23,11 @@ app.use((req, res, next) => {
 // });
 
 const pool = mysql.createPool({
-  connectionLimit : 10, // Adjust the limit as per your application's needs
-  // host: '34.192.31.89',
   host: 'bwoil61ozg3apq6bgo4v-mysql.services.clever-cloud.com',
   user: 'uie5u0mh8azfojeo',
   password: 'iMHfYHCzTb0m11wETKo8',
   database: 'bwoil61ozg3apq6bgo4v',
-  connectTimeout: 10000 
+  connectTimeout: 20000 
 });
 
 // Connect to MySQL
@@ -147,7 +145,7 @@ app.post('/login', (req, res) => {
     pool.query(sql,[username,branchname,res_date,timeslot,tabletype,tab_count], (err,results)=>{
       if(err){
         console.log('error creating reservation',err);
-        err.status(500).json({error : 'Failed creating Reservation'});
+        res.status(500).json({error : 'Failed creating Reservation'});
       }
       else{
         res.json({message :'Reservation successful'});
@@ -161,7 +159,7 @@ app.post('/login', (req, res) => {
     pool.query(sql,[username,branchname,res_date,timeslot,tabletype], (err,results)=>{
       if(err){
         console.log('error cancelling reservation',err);
-        err.status(500).json({error : 'Failed cancelling Reservation'});
+        res.status(500).json({error : 'Failed cancelling Reservation'});
       }
       else{
         res.json({message :'Reservation Cancelled'});
@@ -175,7 +173,7 @@ app.post('/login', (req, res) => {
     pool.query(sql,[username,branchname], (err,results)=>{
       if(err){
         console.log('error fetching reservations',err);
-        err.status(500).json({error : 'Failed fetching Reservations'});
+        res.status(500).json({error : 'Failed fetching Reservations'});
       }
       else{
         res.json(results);
@@ -189,7 +187,7 @@ app.post('/login', (req, res) => {
     pool.query(sql,[username,branchname,itemname], (err,results)=>{
       if(err){
         console.log('error adding to favourites',err);
-        err.status(500).json({error : 'Failed creating Favourites'});
+        res.status(500).json({error : 'Failed creating Favourites'});
       }
       else{
         res.json({message :'Reservation successful'});
@@ -212,7 +210,7 @@ app.post('/login', (req, res) => {
     pool.query(sql,[username,itemname], (err, results) => {
       if(err){
         console.log('error removing favourite',err);
-        err.status(500).json({error : 'Failed removing favourite'});
+        res.status(500).json({error : 'Failed removing favourite'});
       }
       else{
         res.json({message :'Removed from Favourites successfully'});
@@ -260,7 +258,7 @@ app.post('/login', (req, res) => {
     pool.query(sql,[username, branchname, itemname], (err, results) => {
       if(err){
         console.log('error removing cart',err);
-        err.status(500).json({error : 'Failed removing cart items'});
+        res.status(500).json({error : 'Failed removing cart items'});
       }
       else{
         res.json({message :'Removed from cart successfully'});
